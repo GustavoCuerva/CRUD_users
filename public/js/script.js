@@ -30,6 +30,11 @@ $(document).ready(function() {
         },
 
         messages: {
+
+        password: {
+            minlength: "A senha deve ter 8 digitos"
+        },
+
         confirm_password: {
             equalTo: "Digite a mesma senha novamente"
         },
