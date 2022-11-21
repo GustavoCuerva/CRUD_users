@@ -2,55 +2,55 @@
 
 @section('title', 'Cadastrar')
     
+@section('title_page', 'Cadastrar Usuário')
+
 @section('content')
-<div class="d-flex align-items-center h-max centralizar">
+<div class="d-flex align-items-center h-max mt-5 justify-content-center">
     <div class="w-100">
-        <form>
+        <form style="max-width:600px; margin:auto;" id="form-register">
+            @csrf
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="name">Nome completo:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Nome completo">
+              </div>
+            </div>
+
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email">
               </div>
               <div class="form-group col-md-6">
-                <label for="inputPassword4">Password</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                <label for="date">Data Nascimento:</label>
+                <input type="text" class="form-control" id="date" name="date" placeholder="dd/mm/aaaa">
+                <label id="error" class="error" for="date" style="display: none;">Por favor, forneça uma data correta.</label>
               </div>
             </div>
-            <div class="form-group">
-              <label for="inputAddress">Address</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <div class="form-group">
-              <label for="inputAddress2">Address 2</label>
-              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-            </div>
+
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
+                <label for="inputPassword4">Senha:</label>
+                <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Senha">
+                <label id="error_senha" class="error" for="inputPassword4" style="display: none;">A senha deve conter letras maiusculas e minusculas, numeros e caracteres especiais</label>
               </div>
-              <div class="form-group col-md-4">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                  <option selected>Choose...</option>
-                  <option>...</option>
-                </select>
-              </div>
-              <div class="form-group col-md-2">
-                <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
+              <div class="form-group col-md-6">
+                <label for="inputPassword4_">Confirma a senha</label>
+                <input type="password" class="form-control" id="inputPassword4_" name="confirm_password" placeholder="Confirme a senha" disabled>
               </div>
             </div>
-            <div class="form-group">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                  Check me out
-                </label>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <a href="{{ route('index') }}" class="btn btn-danger">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
           </form>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+  <script type="text/javascript" src="{{ asset('/js/jquery.validate.min.js') }}"></script>
+  <script src="{{ asset('/js/additional-methods.min.js') }}"></script>
+  <script src="{{ asset('/js/localization/messages_pt_BR.min.js') }}"></script>
+  <script src="{{ asset('/js/jquery.mask.min.js') }}"></script>
+
+  <script src="{{ asset('/js/script.js') }}"></script>
 @endsection

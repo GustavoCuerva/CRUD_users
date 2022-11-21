@@ -2,12 +2,9 @@
 
 @section('title', 'Lista')
 
+@section('title_page', 'Lista de Usuários')
+
 @section('content')
-
-    <div class="text-center mt-5">
-        <h1>Lista de Usuários</h1>
-    </div>
-
     <div class="table-responsive w-100">
         <table class="table table-striped table-bordered table-hover mt-5">
             <thead class="thead-dark">
