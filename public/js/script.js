@@ -30,23 +30,22 @@ $(document).ready(function() {
         },
 
         messages: {
+            password: {
+                minlength: "A senha deve ter 8 digitos"
+            },
 
-        password: {
-            minlength: "A senha deve ter 8 digitos"
-        },
+            confirm_password: {
+                equalTo: "Digite a mesma senha novamente"
+            },
+            
+            date: {
+                minlength: "Data incompleta, utilize o padrão dd/mm/aaaa",
+                maxlength: "Data incorreta, utilize o padrão dd/mm/aaaa"
+            },
 
-        confirm_password: {
-            equalTo: "Digite a mesma senha novamente"
-        },
-        
-        date: {
-            minlength: "Data incompleta, utilize o padrão dd/mm/aaaa",
-            maxlength: "Data incorreta, utilize o padrão dd/mm/aaaa"
-        },
-
-        name: {
-            minWords: "Digite o nome e sobrenome"
-        }
+            name: {
+                minWords: "Digite o nome e sobrenome"
+            }
         }
     })
 
@@ -85,15 +84,18 @@ $(document).ready(function() {
 
         var password = $(this).val();
         var password2 = document.getElementById('inputPassword4_');
+        var button = document.getElementById('cadastrar');
 
         var msg = document.getElementById('error_senha');
 
         if (password.length >= 8) {
             if ((password.match(numbers) && password.match(alphabet) && password.match(Alphabet) && password.match(special_characters))) {
                 password2.disabled = false;
+                button.disabled = false;
                 msg.style.display = "none";
             }else{
                 password2.disabled = true;
+                button.disabled = true;
                 msg.style.display = "block";
             }      
         }

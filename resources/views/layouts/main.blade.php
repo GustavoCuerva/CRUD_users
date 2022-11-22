@@ -42,7 +42,10 @@
         <main class="container pt-3 pb-3">
             <div class="text-center mt-5">
                 <h1>@yield('title_page')</h1>
-              </div>
+                @if(session('msg'))
+                    <p>{{ session('msg') }}</p>
+                @endif
+            </div>
                 @yield('content')
         </main>
 

@@ -7,7 +7,7 @@
 @section('content')
 <div class="d-flex align-items-center h-max mt-5 justify-content-center">
     <div class="w-100">
-        <form style="max-width:600px; margin:auto;" id="form-register">
+        <form action="{{ route('user.store') }}" method="POST" style="max-width:600px; margin:auto;" id="form-register">
             @csrf
             <div class="form-row">
               <div class="form-group col-md-12">
@@ -36,18 +36,19 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="inputPassword4_">Confirma a senha</label>
-                <input type="password" class="form-control" id="inputPassword4_" name="confirm_password" placeholder="Confirme a senha" disabled>
+                <input type="password" class="form-control" id="inputPassword4_" name="confirm_password" placeholder="Confirme a senha" disabled required>
               </div>
             </div>
             <a href="{{ route('index') }}" class="btn btn-danger">Cancelar</a>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" class="btn btn-primary" id="cadastrar" disabled>Cadastrar</button>
           </form>
     </div>
 </div>
 @endsection
 
 @section('scripts')
-  <script type="text/javascript" src="{{ asset('/js/jquery.validate.min.js') }}"></script>
+  {{-- Jquery --}}
+  <script src="{{ asset('/js/jquery.validate.min.js') }}"></script>
   <script src="{{ asset('/js/additional-methods.min.js') }}"></script>
   <script src="{{ asset('/js/localization/messages_pt_BR.min.js') }}"></script>
   <script src="{{ asset('/js/jquery.mask.min.js') }}"></script>
