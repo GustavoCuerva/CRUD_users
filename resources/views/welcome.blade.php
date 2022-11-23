@@ -17,29 +17,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th class="align-middle" scope="row">1</th>
-                <td class="align-middle">Mark</td>
-                <td class="align-middle">Otto@gmail.com</td>
-                <td class="align-middle">18/11/2022</td>
-                <td class="text-center align-middle">
-                    <button type="button" class="btn btn-danger mt-1"> <i class="bi bi-trash-fill"></i> Excluir</button> 
-                    <a href="/" class="btn btn-primary mt-1"> <i class="bi bi-pencil-square"></i> Editar</a></td>
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton@gmail.com</td>
-                <td>18/11/2022</td>
-                <td><button type="button" class="btn btn-danger">Excluir</button> <a href="/" class="btn btn-primary">Editar</a></td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird@gmail.com</td>
-                <td>18/11/2022</td>
-                <td><button type="button" class="btn btn-danger">Excluir</button> <a href="/" class="btn btn-primary">Editar</a></td>
-                </tr>
+                @foreach ($users as $user)
+                    <tr>
+                        <th class="align-middle" scope="row">{{ $loop->index + 1 }}</th>
+                        <td class="align-middle">{{ $user['name'] }}</td>
+                        <td class="align-middle">{{ $user['email'] }}</td>
+                        <td class="align-middle">{{ date("d/m/Y", strtotime($user['created_at'])) }}</td>
+                        <td class="text-center align-middle">
+                            <button type="button" class="btn btn-danger mt-1"> <i class="bi bi-trash-fill"></i> Excluir</button> 
+                            <a href="/" class="btn btn-primary mt-1"> <i class="bi bi-pencil-square"></i> Editar</a></td>
+                        </tr>
+                    <tr>
+                @endforeach
             </tbody>
         </table>
     </div>

@@ -43,7 +43,7 @@
             <div class="text-center mt-5">
                 <h1>@yield('title_page')</h1>
                 @if(session('msg'))
-                    <p>{{ session('msg') }}</p>
+                    <p style="color: green;">{{ session('msg') }}</p>
                 @endif
             </div>
                 @yield('content')
