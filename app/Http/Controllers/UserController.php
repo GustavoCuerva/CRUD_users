@@ -18,6 +18,10 @@ class UserController extends Controller
         return view('users.create');
     }
 
+    /**
+     * It creates a new user, sets the name, email, password and birth date, and then saves it to the
+     * database
+    */
     public function store(Request $request){
         $user = new User;
 
@@ -31,5 +35,11 @@ class UserController extends Controller
         $user->save();
 
         return redirect(route('user.create'))->with('msg', 'Dados cadastrados com sucesso');
+    }
+
+    public function destroy($id){
+        User::findOrFail($id)->delete();
+
+        return redirect(route('index'))->with('msg', 'Usuário excluido com suceso');
     }
 }

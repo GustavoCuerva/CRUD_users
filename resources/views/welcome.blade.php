@@ -17,18 +17,24 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $user)
+                @forelse ($users as $user)
+                    @include('modal')
                     <tr>
                         <th class="align-middle" scope="row">{{ $loop->index + 1 }}</th>
                         <td class="align-middle">{{ $user['name'] }}</td>
                         <td class="align-middle">{{ $user['email'] }}</td>
                         <td class="align-middle">{{ date("d/m/Y", strtotime($user['created_at'])) }}</td>
                         <td class="text-center align-middle">
-                            <button type="button" class="btn btn-danger mt-1"> <i class="bi bi-trash-fill"></i> Excluir</button> 
-                            <a href="/" class="btn btn-primary mt-1"> <i class="bi bi-pencil-square"></i> Editar</a></td>
-                        </tr>
-                    <tr>
-                @endforeach
+                            <button type="button" class="btn btn-danger mt-1" data-toggle="modal" data-target="#delete-modal"> 
+                                <i class="bi bi-trash-fill"></i> Excluir
+                            </button> 
+                            <a href="/" class="btn btn-primary mt-1"> <i class="bi bi-pencil-square"></i> Editar</a>
+                        </td>
+                    </tr>
+
+                    @empty
+                        <h3 style="color: #989898;">Sem usuários cadastrados</h3>
+                @endforelse
             </tbody>
         </table>
     </div>
