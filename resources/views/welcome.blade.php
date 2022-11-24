@@ -28,7 +28,7 @@
                             <button type="button" class="btn btn-danger mt-1" data-toggle="modal" data-target="#delete-modal"> 
                                 <i class="bi bi-trash-fill"></i> Excluir
                             </button> 
-                            <a href="/" class="btn btn-primary mt-1"> <i class="bi bi-pencil-square"></i> Editar</a>
+                            <a href="{{ route('user.edit', ['id' => $user['id']]) }}" class="btn btn-primary mt-1"> <i class="bi bi-pencil-square"></i> Editar</a>
                         </td>
                     </tr>
 

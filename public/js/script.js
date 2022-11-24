@@ -1,32 +1,37 @@
 const date = new Date();
 
-$(document).ready(function() {
-    /* A validation for the form. */
+
+function validation(true_or_false) {
+        /* A validation for the form. */
     $('#form-register').validate({
         rules:{
-        name: {
-            required: true,
-            minWords: 2
-        },
-        email: {
-            required: true,
-            email: true
-        },
-        date: {
-            required: true,
-            dateNL: true,
-            minlength: 10,
-            maxlength: 10
-        },
-        password: {
-            required: true,
-            minlength: 8,
-        },
-        confirm_password: {
-            required: true,
-            minlength: 8,
-            equalTo: "#inputPassword4"
-        }
+            name: {
+                required: true,
+                minWords: 2
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            date: {
+                required: true,
+                dateNL: true,
+                minlength: 10,
+                maxlength: 10
+            },
+            password: {
+                required: true_or_false,
+                minlength: 8
+            },
+            confirm_password: {
+                required: true,
+                minlength: 8,
+                equalTo: "#inputPassword4"
+            },
+            password_before: {
+                required: true,
+                minlength: 8
+            }
         },
 
         messages: {
@@ -36,6 +41,10 @@ $(document).ready(function() {
 
             confirm_password: {
                 equalTo: "Digite a mesma senha novamente"
+            },
+
+            password_before: {
+                required: "Digite a senha do usuário para poder edita-lo"
             },
             
             date: {
@@ -100,5 +109,4 @@ $(document).ready(function() {
             }      
         }
     })
-
-})
+}
