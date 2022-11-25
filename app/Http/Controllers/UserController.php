@@ -52,7 +52,7 @@ class UserController extends Controller
             $user = [
                 'name' => $request->name,
                 'email' => $request->email,
-                'birth_date' => $request->date,
+                'birth_date' => $request->birth_date,
                 'password' => '',
                 'url' => route('user.store')
             ];
@@ -62,7 +62,9 @@ class UserController extends Controller
 
         $user = new User;
 
-        $date = date("Y-m-d", strtotime($request->date));
+        $birth_date = str_replace('/', '-', $request->birth_date);
+
+        $date = date("Y-m-d", strtotime($birth_date));
 
         $user->name = $request->name;
         $user->email = $request->email;
@@ -100,9 +102,25 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         
         if ($user->password == $request->password_before) {
+
+            if ($request->password == '') {
+                $request['password'] = $user->password;
+            }
+
+            echo $request->birth_date."<br>";
+
+            $birth_date = str_replace('/', '-', $request->birth_date);
+
+            $date = date("Y-m-d", strtotime($birth_date));
             $data = $request->all();
 
             User::findOrFail($id)->update($data);
+            
+            /* Updating the birth date of the user. */
+            $user = User::findOrFail($id);
+            $user->birth_date = $date;
+            $user->update();
+
             return redirect(route('user.edit', ['id' => $id]))->with('msg', 'Usuário editado com sucesso');
         }
             

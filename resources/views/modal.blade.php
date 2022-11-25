@@ -1,4 +1,4 @@
-<div class="modal fade" tabindex="-1" role="dialog" id="delete-modal">
+<div class="modal fade" tabindex="-1" role="dialog" id="delete-modal{{ $loop->index }}">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">

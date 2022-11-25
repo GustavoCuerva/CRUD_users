@@ -25,7 +25,7 @@
                         <td class="align-middle">{{ $user['email'] }}</td>
                         <td class="align-middle">{{ date("d/m/Y", strtotime($user['created_at'])) }}</td>
                         <td class="text-center align-middle">
-                            <button type="button" class="btn btn-danger mt-1" data-toggle="modal" data-target="#delete-modal"> 
+                            <button type="button" class="btn btn-danger mt-1" data-toggle="modal" data-target="#delete-modal{{ $loop->index }}"> 
                                 <i class="bi bi-trash-fill"></i> Excluir
                             </button> 
                             <a href="{{ route('user.edit', ['id' => $user['id']]) }}" class="btn btn-primary mt-1"> <i class="bi bi-pencil-square"></i> Editar</a>

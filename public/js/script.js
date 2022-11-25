@@ -13,7 +13,7 @@ function validation(true_or_false) {
                 required: true,
                 email: true
             },
-            date: {
+            birth_date: {
                 required: true,
                 dateNL: true,
                 minlength: 10,

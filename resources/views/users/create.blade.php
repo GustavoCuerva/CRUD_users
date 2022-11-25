@@ -23,7 +23,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="date">Data Nascimento:</label>
-                <input type="text" class="form-control" id="date" name="date" placeholder="dd/mm/aaaa" value="{{ $user['birth_date'] != '' ? date('d/m/Y', strtotime($user['birth_date'])) : '' }}">
+                <input type="text" class="form-control" id="date" name="birth_date" placeholder="dd/mm/aaaa" value="{{ $user['birth_date'] != '' ? date('d/m/Y', strtotime($user['birth_date'])) : '' }}">
                 <label id="error" class="error" for="date" style="display: none;">Por favor, forneça uma data correta.</label>
               </div>
             </div>
@@ -31,12 +31,12 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputPassword4">Senha:</label>
-                <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Senha" value="{{ $user['password'] }}">
+                <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Senha">
                 <label id="error_senha" class="error" for="inputPassword4" style="display: none;">A senha deve conter letras maiusculas e minusculas, numeros e caracteres especiais</label>
               </div>
               <div class="form-group col-md-6">
                 <label for="inputPassword4_">Confirma a senha</label>
-                <input type="password" class="form-control" id="inputPassword4_" name="confirm_password" placeholder="Confirme a senha" value="{{ $user['password'] }}" disabled>
+                <input type="password" class="form-control" id="inputPassword4_" name="confirm_password" placeholder="Confirme a senha" disabled>
               </div>
             </div>
 
