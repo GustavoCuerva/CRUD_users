@@ -10,7 +10,16 @@ class UserController extends Controller
     // Apenas redirecionamento e views
     public function index(){
 
-        $users = User::all();
+        $search = request('search');
+
+        if($search){
+            $users = User::where('name', 'like', '%'.$search.'%')
+                        ->orWhere('email', 'like', '%'.$search.'%')
+                        ->orWhere('birth_date', 'like', '%'.$search.'%')
+                        ->get();
+        }else{
+            $users = User::all();
+        }
 
         return view('welcome', ['users' => $users]);
     }

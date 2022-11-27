@@ -20,3 +20,7 @@ Route::get('/users/{id}', [UserController::class, 'edit'])->name('user.edit');
 Route::post('/users', [UserController::class, 'store'])->name('user.store');
 Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 Route::put('/users/update/{id}', [UserController::class, 'update'])->name('user.update');
+
+Route::fallback(function(){
+    return view('fallback');
+});

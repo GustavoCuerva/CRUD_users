@@ -30,8 +30,8 @@
                     </li>
                     </ul>
 
-                    <form class="form-inline" action="" method="GET">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search" />
+                    <form class="form-inline" action="{{ route('index') }}" method="GET">
+                        <input class="form-control mr-sm-2" type="search" name="search" placeholder="Pesquisar" aria-label="Search" />
                         <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Pesquisar</button>
                     </form> 
                 </div>
